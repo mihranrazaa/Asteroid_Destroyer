@@ -1,0 +1,8 @@
+game_state.jsonl
+.wakatime-project
+game_events.jsonl
+build/
+temp.py
+main.spec
+dist/
+__pycache__
