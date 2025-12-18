@@ -18,6 +18,8 @@ S -- Move backward
 
 Space -- Shoot
 
+---
+
 ## How to Play
 
 Just download the Compiled version of the game from the releases page or download the source code from Github.
