@@ -10,11 +10,11 @@ A game where you control a spaceship and destroy asteroids. This is my first eve
 
 W -- Move forward
 
-A -- Rotate left
+A -- (Move Forward)Rotate left
 
-D -- Rotate right
+D -- (Move Forward)Rotate right
 
-S -- Move backward
+S -- (Move Forward)Rotate backward
 
 Space -- Shoot
 
@@ -29,6 +29,11 @@ Just download the Compiled version of the game from the releases page or downloa
 - The triangle is also a circle in the game logic, so it can be easier for me to implement collision detection as a newbie.
 - I dunno what to write here..
 - I can't decide what name i should give to the game, so i gave the BEST GENERIC NAME ::::: ASTEROID DESTROYER!!!
+
+## Versions
+
+- v1.0: Initial release
+- v1.1: Improved Controls, (Personally i feel comfortable using the new controls), Better movement
 
 ## Credits 
 
