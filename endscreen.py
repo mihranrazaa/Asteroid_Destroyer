@@ -1,0 +1,31 @@
+import pygame
+
+from constants import SCREEN_HEIGHT, SCREEN_WIDTH
+
+
+def end_screen(screen, score):
+    screen.fill("black")
+
+    game_over_font = pygame.font.Font(None, 64)
+    game_over_text = game_over_font.render("GAME OVER", True, (255, 0, 0))
+    game_over_rect = game_over_text.get_rect(
+        center=(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 - 50)
+    )
+    screen.blit(game_over_text, game_over_rect)
+
+    score_font = pygame.font.Font(None, 48)
+    final_score_text = score_font.render(f"Final Score: {score}", True, (255, 255, 255))
+    final_score_rect = final_score_text.get_rect(
+        center=(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 + 10)
+    )
+    screen.blit(final_score_text, final_score_rect)
+
+    pygame.display.flip()
+
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                return
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE or event.key == pygame.K_SPACE:
+                    return

@@ -34,6 +34,7 @@ Just download the Compiled version of the game from the releases page or downloa
 
 - v1.0: Initial release
 - v1.1: Improved Controls, (Personally i feel comfortable using the new controls), Better movement
+- v1.2: Added End Screen :: You can leave the game by pressing the escape key or spacebar. :: Added Score counter, 5 per asteroid destroyed. 
 
 ## Credits 
 
