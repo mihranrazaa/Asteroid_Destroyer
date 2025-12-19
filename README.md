@@ -29,12 +29,16 @@ Just download the Compiled version of the game from the releases page or downloa
 - The triangle is also a circle in the game logic, so it can be easier for me to implement collision detection as a newbie.
 - I dunno what to write here..
 - I can't decide what name i should give to the game, so i gave the BEST GENERIC NAME ::::: ASTEROID DESTROYER!!!
+- In the building run i added more random features, i first thought of only adding Score counter, which is a good thing to have, but then i also saw that with pygame i can add BGM(Background Music) very easily so i added it. Then i thought why not make it more challenging? so i added a timer that decreases the speed of the asteroids as the score increases. 
+- I forgot to mention after score counter i added the Game over screen, which i really really wanted to add, as it felt like a good way to end the game. 
+
+---
 
 ## Versions
 
 - v1.0: Initial release
 - v1.1: Improved Controls, (Personally i feel comfortable using the new controls), Better movement
-- v1.2: Added End Screen :: You can leave the game by pressing the escape key or spacebar. :: Added Score counter, 5 per asteroid destroyed. 
+- v1.2: Added End Screen :: You can leave the game by pressing the escape key or spacebar. :: Added Score counter, 5 per asteroid destroyed. :: Increased difficulty as score increases :: Added BGM :: Added increase Difficulty as score increases
 
 ## Credits 
 

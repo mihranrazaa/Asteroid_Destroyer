@@ -2,12 +2,13 @@
 Project By - mihranrazaa
 Date - 18-12-2025
 License - None
-Name - Not yet Decided :?
+Name - Asteroid Destroyer? (yay name!)
 """
 
 import sys
 
 import pygame
+from pygame import mixer
 
 from asteroid import Asteroid
 from asteroidfield import AsteroidField
@@ -21,6 +22,10 @@ from shot import Shot
 def main():
     print(f"Starting Asteroids with pygame version: {pygame.version.ver}")
     pygame.init()
+    mixer.init()
+    pygame.mixer.music.load("assets/music.wav")
+    pygame.mixer.music.play(-1)
+    pygame.mixer.music.set_volume(0.2)
     refresh = pygame.time.Clock()
     dt = 0
     print(f"Screen width: {SCREEN_WIDTH}")
@@ -37,12 +42,16 @@ def main():
     AsteroidField.containers = updatable
     Shot.containers = (shots, updatable, drawable)
     player = Player(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)
-    AsteroidField()
+    asteroid_field = AsteroidField()
 
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
+
+        # Increase difficulty based on score
+        asteroid_field.update_difficulty(score)
+
         log_state()
         pygame.Surface.fill(screen, "black")
         updatable.update(dt)
