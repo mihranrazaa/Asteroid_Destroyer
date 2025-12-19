@@ -5,6 +5,7 @@ License - None
 Name - Asteroid Destroyer? (yay name!)
 """
 
+import os
 import sys
 
 import pygame
@@ -19,11 +20,19 @@ from player import Player
 from shot import Shot
 
 
+def resource_path(relative_path: str) -> str:
+    if hasattr(sys, "_MEIPASS"):
+        base_path = sys._MEIPASS
+    else:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
+
+
 def main():
     print(f"Starting Asteroids with pygame version: {pygame.version.ver}")
     pygame.init()
     mixer.init()
-    pygame.mixer.music.load("assets/music.wav")
+    pygame.mixer.music.load(resource_path("assets/music.wav"))
     pygame.mixer.music.play(-1)
     pygame.mixer.music.set_volume(0.2)
     refresh = pygame.time.Clock()
