@@ -28,20 +28,8 @@ def resource_path(relative_path: str) -> str:
     return os.path.join(base_path, relative_path)
 
 
-def main():
-    print(f"Starting Asteroids with pygame version: {pygame.version.ver}")
-    pygame.init()
-    mixer.init()
-    pygame.mixer.music.load(resource_path("assets/music.wav"))
-    pygame.mixer.music.play(-1)
-    pygame.mixer.music.set_volume(0.2)
-    refresh = pygame.time.Clock()
-    dt = 0
-    print(f"Screen width: {SCREEN_WIDTH}")
-    print(f"Screen height: {SCREEN_HEIGHT}")
-    screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+def game_loop(screen, font):
     score = 0
-    font = pygame.font.Font(None, 36)
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
     asteroids = pygame.sprite.Group()
@@ -53,10 +41,13 @@ def main():
     player = Player(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)
     asteroid_field = AsteroidField()
 
+    refresh = pygame.time.Clock()
+    dt = 0
+
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                return
+                return False
 
         # Increase difficulty based on score
         asteroid_field.update_difficulty(score)
@@ -72,8 +63,7 @@ def main():
             if asteroid.collides_with(player):
                 log_event("player_hit")
                 print("Game over!")
-                end_screen(screen, score)
-                sys.exit()
+                return end_screen(screen, score)
             for shot in list(shots):
                 if shot.collides_with(asteroid):
                     if asteroid.alive() and shot.alive():
@@ -84,6 +74,24 @@ def main():
 
         pygame.display.flip()
         dt = refresh.tick(60) / 1000.0
+
+
+def main():
+    print(f"Starting Asteroids with pygame version: {pygame.version.ver}")
+    pygame.init()
+    mixer.init()
+    pygame.mixer.music.load(resource_path("assets/music.wav"))
+    pygame.mixer.music.play(-1)
+    pygame.mixer.music.set_volume(0.2)
+
+    print(f"Screen width: {SCREEN_WIDTH}")
+    print(f"Screen height: {SCREEN_HEIGHT}")
+    screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    font = pygame.font.Font(None, 36)
+
+    while True:
+        if not game_loop(screen, font):
+            break
 
 
 main()

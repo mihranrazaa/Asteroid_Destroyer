@@ -20,12 +20,30 @@ def end_screen(screen, score):
     )
     screen.blit(final_score_text, final_score_rect)
 
+    restart_font = pygame.font.Font(None, 36)
+    restart_text = restart_font.render("Press SPACE to restart", True, (255, 255, 255))
+    restart_rect = restart_text.get_rect(
+        center=(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 + 50)
+    )
+    screen.blit(restart_text, restart_rect)
+
+    restart_font = pygame.font.Font(None, 36)
+    restart_text = restart_font.render(
+        "Press Space to Restart OR Esc to Quit", True, (255, 255, 255)
+    )
+    restart_rect = restart_text.get_rect(
+        center=(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 + 50)
+    )
+    screen.blit(restart_text, restart_rect)
+
     pygame.display.flip()
 
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                return
+                return False
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_ESCAPE or event.key == pygame.K_SPACE:
-                    return
+                if event.key == pygame.K_ESCAPE:
+                    return False
+                if event.key == pygame.K_SPACE:
+                    return True
