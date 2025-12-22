@@ -1,7 +1,8 @@
 """
 Project By - mihranrazaa
 Date - 18-12-2025
-License - None
+License - MIT License
+Copyright (c) 2025 mihranrazaa
 Name - Asteroid Destroyer? (yay name!)
 """
 
@@ -53,11 +54,19 @@ def game_loop(screen, font):
         asteroid_field.update_difficulty(score)
 
         log_state()
-        pygame.Surface.fill(screen, "black")
+
+        if score >= 400:
+            bg_color = "white"
+            fg_color = "black"
+        else:
+            bg_color = "black"
+            fg_color = "white"
+
+        pygame.Surface.fill(screen, bg_color)
         updatable.update(dt)
         for sprite in drawable:
-            sprite.draw(screen)
-        score_text = font.render(f"Score: {score}", True, (255, 255, 255))
+            sprite.draw(screen, color=fg_color)
+        score_text = font.render(f"Score: {score}", True, fg_color)
         screen.blit(score_text, (10, 10))
         for asteroid in list(asteroids):
             if asteroid.collides_with(player):

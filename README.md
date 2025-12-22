@@ -42,6 +42,7 @@ Just download the Compiled version of the game from the releases page or downloa
 - v1.1: Improved Controls, (Personally i feel comfortable using the new controls), Better movement
 - v1.2: Added End Screen :: You can leave the game by pressing the escape key or spacebar. :: Added Score counter, 5 per asteroid destroyed. :: Increased difficulty as score increases :: Added BGM :: Added increase Difficulty as score increases
 - v1.3: Added Restart Option :: Press Space to Restart OR Esc to Quit :: I accidentally might have made the world's hardest game lol
+- v1.4 Added Color inversion after a certain score, inspired by chrome dino jump game 
 
 ## Credits 
 
