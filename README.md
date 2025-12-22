@@ -44,6 +44,13 @@ Just download the Compiled version of the game from the releases page or downloa
 - v1.3: Added Restart Option :: Press Space to Restart OR Esc to Quit :: I accidentally might have made the world's hardest game lol
 - v1.4 Added Color inversion after a certain score, inspired by chrome dino jump game 
 
+### Upcoming/Trying Changes
+- Implementing Pause functionality
+- Saving High Score? :: Maybe i can add a leaderboard with high scores
+- More Sound Effects :: Currently i just added a radom music i found as BGM, but it would be fun to add more sounds like explosions, shooting, etc.
+
+---
+
 ## Credits 
 
 - Creator of pygame: https://www.pygame.org/
