@@ -11,6 +11,7 @@ from constants import (
     SHORT_RADIUS,
 )
 from shot import Shot
+from sound import shooting_sound
 
 
 class Player(CircleShape):
@@ -62,3 +63,4 @@ class Player(CircleShape):
     def shoot(self):
         shot = Shot(self.position.x, self.position.y, SHORT_RADIUS)
         shot.velocity = pygame.Vector2(0, 1).rotate(self.rotation) * PLAYER_SHOT_SPEED
+        shooting_sound()

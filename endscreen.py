@@ -1,6 +1,8 @@
 import pygame
+from pygame import mixer
 
 from constants import SCREEN_HEIGHT, SCREEN_WIDTH
+from sound import gameover
 
 
 def end_screen(screen, score):
@@ -30,6 +32,7 @@ def end_screen(screen, score):
     screen.blit(restart_text, restart_rect)
 
     pygame.display.flip()
+    gameover()
 
     while True:
         for event in pygame.event.get():
@@ -39,4 +42,5 @@ def end_screen(screen, score):
                 if event.key == pygame.K_ESCAPE:
                     return False
                 if event.key == pygame.K_SPACE:
+                    mixer.music.unpause()
                     return True

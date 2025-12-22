@@ -6,9 +6,6 @@ Copyright (c) 2025 mihranrazaa
 Name - Asteroid Destroyer? (yay name!)
 """
 
-import os
-import sys
-
 import pygame
 from pygame import mixer
 
@@ -18,15 +15,9 @@ from constants import SCREEN_HEIGHT, SCREEN_WIDTH
 from endscreen import end_screen
 from logger import log_event, log_state
 from player import Player
+from resource_path import resource_path
 from shot import Shot
-
-
-def resource_path(relative_path: str) -> str:
-    if hasattr(sys, "_MEIPASS"):
-        base_path = sys._MEIPASS
-    else:
-        base_path = os.path.abspath(".")
-    return os.path.join(base_path, relative_path)
+from sound import init_sounds
 
 
 def game_loop(screen, font):
@@ -68,6 +59,10 @@ def game_loop(screen, font):
             sprite.draw(screen, color=fg_color)
         score_text = font.render(f"Score: {score}", True, fg_color)
         screen.blit(score_text, (10, 10))
+        if pygame.key.get_pressed()[pygame.K_m]:
+            mixer.music.pause()
+        if pygame.key.get_pressed()[pygame.K_n]:
+            mixer.music.unpause()
         for asteroid in list(asteroids):
             if asteroid.collides_with(player):
                 log_event("player_hit")
@@ -89,6 +84,7 @@ def main():
     print(f"Starting Asteroids with pygame version: {pygame.version.ver}")
     pygame.init()
     mixer.init()
+    init_sounds()
     pygame.mixer.music.load(resource_path("assets/music.wav"))
     pygame.mixer.music.play(-1)
     pygame.mixer.music.set_volume(0.2)
