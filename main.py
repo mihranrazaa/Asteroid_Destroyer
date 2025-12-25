@@ -81,7 +81,9 @@ def game_loop(screen, font):
 
 
 def main():
-    print(f"Starting Asteroids with pygame version: {pygame.version.ver}")
+    print(f"Starting Asteroid Destroyer!!! with pygame version: {pygame.version.ver}")
+    print("HOPE YOU ENJOY THIS GAME :) ~ MIHRANRAZAA")
+    print("https://github.com/mihranrazaa/Asteroid_Destroyer")
     pygame.init()
     mixer.init()
     init_sounds()
